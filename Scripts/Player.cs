@@ -35,6 +35,9 @@ public class Player : MonoBehaviour
   bool Right_Up;
   bool isClick;
 
+  // 모바일 종료 카운터
+  int ClickCount = 0;
+
 
   void Start()
   {
@@ -50,9 +53,27 @@ public class Player : MonoBehaviour
   void Update()
   {
     Jump();
-
     Jump_Up = false;
     Jump_Down = false;
+
+    if (Input.GetKeyDown(KeyCode.Escape))
+    {
+      ClickCount++;
+      if (!IsInvoking("DoubleClick"))
+      {
+        Invoke("DoubleClick", 1.0f);
+      }
+      else if (ClickCount == 2)
+      {
+        CancelInvoke("DoubleClick");
+        Application.Quit();
+      }
+    }
+  }
+
+  void DoubleClick()
+  {
+    ClickCount = 0;
   }
 
   void FixedUpdate()

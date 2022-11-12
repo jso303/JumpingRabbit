@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Clear : MonoBehaviour
 {
@@ -14,7 +15,13 @@ public class Clear : MonoBehaviour
     if (collision.gameObject.tag == "Player")
     {
       anim.SetBool("Clear", true);
+      Invoke("MainScenes", 3.0f);
     }
+  }
+
+  void MainScenes()
+  {
+    SceneManager.LoadScene(0);
   }
 
 }

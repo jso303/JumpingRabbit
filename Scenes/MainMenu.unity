@@ -2460,6 +2460,7 @@ GameObject:
   - component: {fileID: 1351431885}
   - component: {fileID: 1351431884}
   - component: {fileID: 1351431883}
+  - component: {fileID: 1351431891}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -2797,6 +2798,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1351431891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351431882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05d99798891c23f4a931f52038789330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1432335277
 GameObject:
   m_ObjectHideFlags: 0
@@ -3115,7 +3128,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -500, y: 340}
+  m_AnchoredPosition: {x: -600, y: 340}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1599022729
@@ -3490,6 +3503,7 @@ GameObject:
   - component: {fileID: 1945844990}
   - component: {fileID: 1945844989}
   - component: {fileID: 1945844992}
+  - component: {fileID: 1945844993}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3580,6 +3594,18 @@ MonoBehaviour:
   center: {x: 0, y: 1.82}
   mapSize: {x: 4, y: 7}
   cameraMoveSpeed: 5
+--- !u!114 &1945844993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945844988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05d99798891c23f4a931f52038789330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2001953054
 GameObject:
   m_ObjectHideFlags: 0
