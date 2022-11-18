@@ -5,10 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class EasyMode : MonoBehaviour
 {
-
   void Start()
   {
-
   }
 
   // Update is called once per frame
