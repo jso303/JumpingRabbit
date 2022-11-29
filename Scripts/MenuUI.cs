@@ -23,7 +23,7 @@ public class MenuUI : MonoBehaviour
   {
     if (Input.GetKeyDown(KeyCode.Escape))
     {
-      Debug.Log("메뉴");
+      // Debug.Log("메뉴");
       Time.timeScale = 0;
       MenuPanel.SetActive(true);
     }

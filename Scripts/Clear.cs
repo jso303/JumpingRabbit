@@ -12,10 +12,19 @@ public class Clear : MonoBehaviour
   void Start()
   {
     anim = GetComponent<Animator>();
+    anim.SetBool("Clear", false);
     ClearPanel.SetActive(false);
   }
 
-  private void OnTriggerEnter2D(Collider2D collision)
+  private void OnTriggerEnter2D(Collider2D Collider)
+  {
+    if (Collider.gameObject.tag == "Player")
+    {
+      anim.SetBool("Clear", true);
+    }
+  }
+
+  private void OnCollisionEnter2D(Collision2D collision)
   {
     if (collision.gameObject.tag == "Player")
     {

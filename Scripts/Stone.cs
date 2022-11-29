@@ -21,6 +21,8 @@ public class Stone : MonoBehaviour
     if (collision.gameObject.tag == "Player")
     {
       rbody.isKinematic = false;
+      this.gameObject.tag = "Attack";
     }
   }
+
 }

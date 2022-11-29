@@ -14,11 +14,16 @@ public class Chaser : MonoBehaviour
   private float MoveTimer;
   private float RageCount;
   private float StagePoint;
+  AudioSource audioSource;
+
+
+
   void Start()
   {
     rbody = GetComponent<Rigidbody2D>();
     sprite = GetComponent<SpriteRenderer>();
     rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+    audioSource = GetComponent<AudioSource>();
     GameOverPanel.SetActive(false);
     RageCount = 0;
     StagePoint = 1;
@@ -39,19 +44,23 @@ public class Chaser : MonoBehaviour
     {
       Move = 0.1f;
       MoveTimer = 0;
+      sprite.color = new Color(1, 0.2f * (5 - RageCount), 0.2f * (5 - RageCount));
     }
     else if (MoveTimer >= 0.5)
     {
       Move = 1;
     }
   }
-
-
+  void TimeStop()
+  {
+    Time.timeScale = 0;
+  }
   private void OnTriggerEnter2D(Collider2D collision)
   {
     if (collision.gameObject.tag == "Player")
     {
-      Time.timeScale = 0;
+      Invoke("TimeStop", 7);
+      Handheld.Vibrate();
       GameOverPanel.SetActive(true);
     }
     if (collision.gameObject.tag == "Attack")
@@ -59,9 +68,11 @@ public class Chaser : MonoBehaviour
       Destroy(collision.gameObject);
       DeathWormSpeed -= 2 * StagePoint;
       RageCount += 1;
-      if (RageCount >= 5)
+      audioSource.Play();
+      if (RageCount >= 3)
       {
-        DeathWormSpeed = 5 * StagePoint;
+        DeathWormSpeed = 6 * StagePoint;
+        Handheld.Vibrate();
       }
       sprite.color = new Color(1, 0.2f * (5 - RageCount), 0.2f * (5 - RageCount));
       Invoke("SpeedReset", 4.0f);
@@ -71,6 +82,8 @@ public class Chaser : MonoBehaviour
       StagePoint += 0.2f;
       Destroy(collision.gameObject);
       DeathWormSpeed = 2 * StagePoint;
+      Handheld.Vibrate();
+      audioSource.Play();
     }
   }
 
@@ -84,7 +97,7 @@ public class Chaser : MonoBehaviour
   {
     if (RageCount > 0.5f)
     {
-      RageCount -= 0.01f;
+      RageCount -= 0.002f;
     }
   }
 }
